@@ -1,6 +1,6 @@
-![Booking -  Form](https://github.com/gihantha/Car-Service-Website/assets/42207039/b8766ae2-3c66-45e4-8908-2758e255136c)# Peak Performance Garage
+# Peak Performance Garage
 
-Car Service web application developed with PHP, Javascript, CodeIgniter, JQuery,Ajax, Bootstrap, SweetAlert and MySQL
+Car Service web application developed with PHP, Javascript, CodeIgniter, JQuery, Ajax, Bootstrap, SweetAlert, and MySQL
 
 ## Screenshots
 
@@ -29,7 +29,7 @@ Car Service web application developed with PHP, Javascript, CodeIgniter, JQuery,
 
 ### User Profile
 
-![Admin Dashboard - User Profile](https://github.com/gihantha/Car-Service-Website/assets/42207039/2df50f54-6400-48eb-bb79-c342a440a767)
+![User Profile](https://github.com/gihantha/Car-Service-Website/assets/42207039/2df50f54-6400-48eb-bb79-c342a440a767)
 
 ### Booking
 
@@ -41,7 +41,7 @@ Car Service web application developed with PHP, Javascript, CodeIgniter, JQuery,
 
 ### About Us
 
-![Uploading About Us Page.png…]()
+![About Us Page](https://github.com/gihantha/Car-Service-Website/assets/42207039/b960c953-b49f-48af-8354-734f846dcd1a)
 
 
 
