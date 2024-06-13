@@ -14,9 +14,8 @@
             <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-    For more information about DataTables, please visit the </p>
+<h1 class="h3 mb-2 text-gray-800">Customers</h1>
+<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit. </p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">

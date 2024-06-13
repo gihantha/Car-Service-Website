@@ -30,7 +30,7 @@
                                             <input type="text" class="form-control form-control-user" placeholder="Enter User Name..." id="inputusername">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" placeholder="Password" id="inputpassword">
+                                            <input type="password" class="form-control form-control-user" placeholder="Password" id="inputpassword">
                                         </div>
                                         
                                         <button type="submit" class="btn btn-primary btn-user btn-block" >
@@ -73,20 +73,30 @@
                 type:"POST",
                 url:"<?=base_url() ?>user_login",
                 data: 'username='+$uname+'&password='+$upass,
+
+                
                 success: function(result){
 
                     var resdata = $.parseJSON(result);
 
-                    Swal.fire({
-                              title: 'Login!',
+                    if(resdata.status == 'success'){
+                        
+                        window.location.replace(resdata.message);
+
+                    }else{
+                        Swal.fire({
+                            title: 'Login!',
                             text: resdata.message,
                             icon: 'error',
                             confirmButtonText: 'OK'
                         });
 
+                    }
+                    
                 },
                 error: function(result){
-                    alert('error');
+                   
+                    alert("error");
 
                 }
             })
