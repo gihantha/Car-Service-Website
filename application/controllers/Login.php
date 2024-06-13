@@ -26,12 +26,20 @@ class Login extends CI_Controller {
 
 			$user = $row->user_name;
 			$pass = $row->password;
+			$userid = $row->user_id;
 
 		endforeach;
 
 		if($username==$user && $password==$pass){
 			
-			$message = array("status"=>"success", "message"=>"http://localhost/myservice/home");
+			$login_data = array(
+				'user_id' => $userid,
+				'user_name' => $user
+			); 
+
+			$this->session->set_userdata('loged_user', $login_data);
+
+			$message = array("status"=>"success", "message"=>"http://localhost/myservice/services");
 
 		} else {
 			$message = array("status"=>"error", "message"=>"User Name or Password is Invalid ");

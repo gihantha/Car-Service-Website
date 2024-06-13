@@ -20,12 +20,12 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="<?php echo base_url();?>/dashboard/dashboard_services_add" class="btn btn-primary btn-icon-split">
+        <a href= "<?php echo base_url();?>/dashboard/dashboard_services_add" class="btn btn-primary btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-user-plus"></i>
                                     </span>
                                     <span class="text">Add a service</span>
-                                </a>
+        </a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
