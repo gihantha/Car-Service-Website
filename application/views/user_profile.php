@@ -82,7 +82,9 @@
                                         <center><img width="150px" class="img-profile rounded-circle" src="<?php echo base_url() ?>assets/assets/img/undraw_profile.svg"></center>
                                     </div>
                                     <div class="card-body">
-                                        <h4><b>Admin</b></h4>
+                                        <h4><b><?php $username = $this->session->userdata['loged_user']['user_name'];
+                                                                            echo $username;
+                                                                            ?></b></h4>
                                         <p>Engineer</p>
                                     </div>
                                 </div>
