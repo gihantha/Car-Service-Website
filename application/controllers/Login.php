@@ -52,4 +52,21 @@ class Login extends CI_Controller {
 		echo json_encode($message);
 	
 	}
+
+
+	function userlogout(){
+		
+		if ($this->session->userdata['loged_user']!=null || $this->session->userdata['loged_user']!=''){
+			
+				$login_data = array(
+					'user_id' =>'',
+					'user_name' =>''
+				);
+
+				$this->session->unset_userdata($login_data);
+				$this->session->sess_destroy();
+			redirect(base_url('Login'));
+		
+		}
+	}
 }
