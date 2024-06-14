@@ -8,6 +8,16 @@
 <body id="page-top">
     <?php $this->load->view("includes/navbar") ?>
 
+    <?php 
+        $username='';
+        foreach($profiledata as $row){
+            $username = $row->user_name;
+            $phone = $row->phone;
+            $email = $row->email;
+            $address = $row->address;
+        }
+
+    ?>
     <!-- services Grid-->
     <section class="page-section bg-light" id="services">
         <div class="container-fluid align-items-center justify-content-center">
@@ -32,7 +42,7 @@
                                         <div class="form-group ">
 
                                             <label>User Name</label>
-                                            <input type="text" class="form-control form-control-user" id="name" placeholder="Please Enter Name"  disabled>
+                                            <input type="text" class="form-control form-control-user" id="name" placeholder="Please Enter Name"  value="<?= $username; ?>" disabled>
 
 
                                         </div>
@@ -41,19 +51,19 @@
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <label>User Phone</label>
 
-                                                <input type="text" class="form-control form-control-user" id="phone" placeholder="Please Enter Phone Number" >
+                                                <input type="text" class="form-control form-control-user" id="phone" placeholder="Please Enter Phone Number" value="<?= $phone; ?>">
                                             </div>
 
                                         </div>
                                         <div class="form-group">
                                             <label>User Email</label>
 
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address" disabled>
+                                            <input type="email" class="form-control form-control-user" id="email" placeholder="Email Address" value="<?= $email; ?>" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label>User Address</label>
 
-                                            <textarea class="form-control form-control-user" placeholder="Address" id="address">
+                                            <textarea class="form-control form-control-user" placeholder="Address" id="address" value="<?= $address; ?>">
                                             
                                         </textarea>
 

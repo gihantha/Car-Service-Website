@@ -5,7 +5,7 @@ class Usermodel extends CI_Model{
 
     function get_user($username){
 
-        $this->db->select('*');
+        $this->db->select('user_id,user_name,password');
         $this->db->from("users");
         $this->db->where("user_name",$username);
         $query=$this->db->get();
@@ -13,6 +13,12 @@ class Usermodel extends CI_Model{
         return $query->result();
     }
 
+     function get_user_profile($user_id){
+        $s = "SELECT users.user_name,users.address,users.phone,users.email FROM users WHERE users.user_id = '".$user_id."'";
+
+        $query = $this->db->query($s);
+        return $query->result();
+    }
 
 
 

@@ -13,7 +13,7 @@ class Services extends CI_Controller {
 
 		if ($this->session->userdata['loged_user']==null || $this->session->userdata['loged_user']==''){
 			
-			redirect(base_url(Login));
+			redirect(base_url('Login'));
 		
 		}
 	 }
