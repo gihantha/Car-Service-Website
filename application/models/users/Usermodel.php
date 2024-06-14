@@ -20,6 +20,16 @@ class Usermodel extends CI_Model{
         return $query->result();
     }
 
+    function get_user_profile_from_aj($user_id){
+        $s = "SELECT users.user_name,users.phone,users.email,users.address FROM users WHERE users.user_id = '".$user_id."'";
+
+        $query = $this->db->query($s);
+
+        $ret['profile'] = $query->result();
+
+        return $ret;
+    }
+
 
 
 

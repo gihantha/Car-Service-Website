@@ -125,8 +125,8 @@
     <script>
         function updateprofile() {
 
-            var    phone = $('#phone').val();
-            var    address = $("#address").val();
+            var phone = $('#phone').val();
+            var address = $("#address").val();
 
             $.ajax({
 
@@ -157,6 +157,37 @@
                         });
 
                     }
+
+                },
+                error: function(result) {
+
+                    alert("error");
+
+                }
+            })
+
+            readprofile();
+        }
+    </script>
+
+    <script>
+        function readprofile() {
+            $.ajax({
+
+                type: "POST",
+                url: "<?= base_url() ?>readprofile",
+                data: 'phone=' + phone + '&address=' + address,
+
+
+                success: function(result) {
+
+                    var resdata = $.parseJSON(result);
+
+                    var phone = resdata.profile[0]['phone'];
+                    var address = resdata.profile[0]['address'];
+
+                    $('#phone').val();
+                    $('#address').val();
 
                 },
                 error: function(result) {

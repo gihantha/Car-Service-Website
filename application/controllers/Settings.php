@@ -47,17 +47,35 @@ class Settings extends CI_Controller {
 		$phone = $this->input->post('phone');
 		$address = $this->input->post('address');
 
+		//How to check wether the transaction (updated to the db ) is successfully done
+		$this->db->trans_start();
+
+		//update the responding columns in the data base
 		$userdata = array(
 			'phone'=> $phone,
 			'address' => $address
 		);
-
 		$this->db->where('users.user_id' , $user_id);
 		$this->db->update('users', $userdata);
 
+		//How to check wether the transaction (updated to the db ) is successfully done
+		$this->db->trans_complete();
+		if($this->db->trans_status()==False){
+			$message = array("status"=>"error", "message"=>"Error");
+		}else{
+			$message = array("status"=>"success", "message"=>"Profile updated");
+		}
 
-		$message = array("status"=>"success", "message"=>"Profile updated");
 		echo json_encode($message);
 
+	}
+
+	function read_profile(){
+
+		$user_id  = $this->session->userdata['loged_user']['user_id'];
+
+		$result= $this->Usermodel->get_user_profile_from_aj($user_id);
+
+		echo json_encode($result);
 	}
 }
