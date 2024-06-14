@@ -14,7 +14,7 @@ class Usermodel extends CI_Model{
     }
 
      function get_user_profile($user_id){
-        $s = "SELECT users.user_name,users.address,users.phone,users.email FROM users WHERE users.user_id = '".$user_id."'";
+        $s = "SELECT users.user_name,users.phone,users.email,users.address FROM users WHERE users.user_id = '".$user_id."'";
 
         $query = $this->db->query($s);
         return $query->result();

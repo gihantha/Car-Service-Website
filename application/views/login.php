@@ -65,14 +65,14 @@
         $('#loginForm').on('submit', function(e){
             e.preventDefault();
 
-            var    $uname = $('#inputusername').val();
-            var    $upass = $("#inputpassword").val();
+            var    uname = $('#inputusername').val();
+            var    upass = $("#inputpassword").val();
 
             $.ajax({
 
                 type:"POST",
                 url:"<?=base_url() ?>user_login",
-                data: 'username='+$uname+'&password='+$upass,
+                data: 'username='+uname+'&password='+upass,
 
                 
                 success: function(result){

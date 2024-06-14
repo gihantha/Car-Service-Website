@@ -38,4 +38,26 @@ class Settings extends CI_Controller {
 		// Load the view and pass the data
         $this->load->view('user_profile',$data);
     }
+
+	function updateprofile(){
+
+		$user_id  = $this->session->userdata['loged_user']['user_id'];
+
+		//Checkiing whether the data input from user_profile.php profile update data is passed to controller
+		$phone = $this->input->post('phone');
+		$address = $this->input->post('address');
+
+		$userdata = array(
+			'phone'=> $phone,
+			'address' => $address
+		);
+
+		$this->db->where('users.user_id' , $user_id);
+		$this->db->update('users', $userdata);
+
+
+		$message = array("status"=>"success", "message"=>"Profile updated");
+		echo json_encode($message);
+
+	}
 }
