@@ -78,4 +78,39 @@ class Settings extends CI_Controller {
 
 		echo json_encode($result);
 	}
+
+	function change_password(){
+
+		$oldpass = $this->input->post('oldpass');
+		$newpass  = $this->input->post('newpass');
+
+		$user_id  = $this->session->userdata['loged_user']['user_id'];
+
+		$result= $this->Usermodel->get_user_password($user_id);
+
+		foreach($result as $row):
+
+			$pass = $row->password;
+			
+		endforeach;
+
+		if(password_verify($oldpass, $pass)){
+
+			$encryptedpassword = password_hash(trim($newpass), PASSWORD_DEFAULT);
+
+			$userdata = array(
+				'password'=> $encryptedpassword
+			);
+			$this->db->where('users.user_id' , $user_id);
+			$this->db->update('users', $userdata);
+
+			$message = array("status"=>"success", "message"=>"Password Updated");
+		}else{
+			$message = array("status"=>"error", "message"=>"Invalid old password");
+		}
+
+		
+
+		echo json_encode($message);
+	}
 }

@@ -30,6 +30,14 @@ class Usermodel extends CI_Model{
         return $ret;
     }
 
+    function get_user_password($user_id){
+        $s ="SELECT  users.password FROM users WHERE users.user_id ='".$user_id."'";
+
+        $query = $this->db->query($s);
+
+        return $query->result();
+    }
+
 
 
 

@@ -34,7 +34,7 @@ class Login extends CI_Controller {
 
 		endforeach;
 
-		if($username==$user && $password==$pass){
+		if($username==$user && password_verify($password, $pass)){
 			
 			$login_data = array(
 				'user_id' => $userid,

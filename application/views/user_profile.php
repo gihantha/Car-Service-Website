@@ -90,15 +90,15 @@
                                 <form class="user" id="changeps">
                                     <div class="form-group ">
                                         <label>Old Password</label>
-                                        <input type="text" class="form-control form-control-user" placeholder="Please Enter Old Password" id="oldpass" required>
+                                        <input type="password" class="form-control form-control-user" placeholder="Please Enter Old Password" id="oldpass" required>
                                     </div>
                                     <div class="form-group ">
                                         <label>New Password</label>
-                                        <input type="text" class="form-control form-control-user" placeholder="Please Enter New Password" id="newpass" required>
+                                        <input type="password" class="form-control form-control-user" placeholder="Please Enter New Password" id="newpass" required>
                                     </div>
                                     <div class="form-group ">
                                         <label>Confirm Password</label>
-                                        <input type="text" class="form-control form-control-user" placeholder="Please Enter New Password" id="conpass" required>
+                                        <input type="password" class="form-control form-control-user" placeholder="Please Enter New Password" id="conpass" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block"> Change Password </button>
                                 </form>
@@ -197,6 +197,66 @@
                 }
             })
         }
+
+       
+
+            $('#changeps').on('submit', function(e){
+                e.preventDefault();
+
+            var newpass = $('#newpass').val();
+            var oldpass = $('#oldpass').val();
+            var conpass = $('#conpass').val();
+
+            if(newpass == conpass){
+                $.ajax({
+                
+                type: "POST",
+                url: "<?= base_url() ?>changepass",
+                data: 'oldpass='+oldpass+'&newpass='+ newpass,
+
+
+                success: function(result) {
+
+                    var resdata = $.parseJSON(result);
+
+                    if (resdata.status == 'success') {
+
+                        Swal.fire({
+                            title: 'Change Password!',
+                            text: resdata.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+
+                    } else {
+                        Swal.fire({
+                            title: 'Change Password!',
+                            text: resdata.message,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+
+                    }
+
+                },
+                error: function(result) {
+
+                    alert("error");
+
+                }
+            })
+            }else{
+                Swal.fire({
+                            title: 'Change Password!',
+                            text: 'New Password and Confirm Password mismatched',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+            }
+            
+            
+        })
+        
     </script>
 </body>
 

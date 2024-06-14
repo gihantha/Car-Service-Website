@@ -57,4 +57,8 @@ $route['user_login'] = 'Login/userlogin';
 $route['updateprofile'] = 'Settings/updateprofile';
 
 $route['readprofile'] = 'Settings/read_profile';
+$route['changepass'] = 'Settings/change_password';
+
+
+
 
