@@ -51,7 +51,7 @@ class Login extends CI_Controller {
 	
 		echo json_encode($message);
 	
-	}
+	} 
 
 
 	function userlogout(){

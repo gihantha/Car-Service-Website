@@ -29,10 +29,11 @@
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" placeholder="Enter User Name..." id="inputusername">
                                         </div>
+                                        
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" placeholder="Password" id="inputpassword">
                                         </div>
-                                        
+                                        <br>
                                         <button type="submit" class="btn btn-primary btn-user btn-block" >
                                             Login
                                         </button>
