@@ -34,7 +34,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- services item 2-->
                         <div class="services-item">
-                            <a   href="<?php echo base_url();?>dashboard/dashboard_appointments" >
+                            <a   href="<?php echo base_url();?>booking/dashboard_booking_appointments" >
                                 
                                 <img class="img-fluid" src="<?php echo base_url();?>/assets/assets/img/dashboard/2.jpg" alt="..." />
                             </a>

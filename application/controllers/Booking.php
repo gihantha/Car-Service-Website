@@ -4,6 +4,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Booking extends CI_Controller
 {
 
+	public function __construct()
+	 {
+		parent::__construct();
+
+		$this->load->model("users/Usermodel");
+
+
+
+		if ($this->session->userdata['loged_user']==null || $this->session->userdata['loged_user']==''){
+			
+			redirect(base_url('Login'));
+		
+		}
+	 }
 
 	public function index()
 	{
@@ -17,8 +31,10 @@ class Booking extends CI_Controller
 
 	function dashboard_booking_appointments()
 	{
-		$this->load->view('dashboard_booking_appointments');
+		$data['appointments'] = $this->Usermodel->get_all_appointments();
+		$this->load->view('dashboard_booking_appointments', $data);
 	}
+	//47.37
 
 	function add_booking_appointment()
 	{
