@@ -13,7 +13,16 @@ class Usermodel extends CI_Model{
         return $query->result();
     }
 
+   
+
      function get_user_profile($user_id){
+        $s = "SELECT users.user_name,users.phone,users.email,users.address FROM users WHERE users.user_id = '".$user_id."'";
+
+        $query = $this->db->query($s);
+        return $query->result();
+    }
+
+    function get_user_profile_for_booking($user_id){
         $s = "SELECT users.user_name,users.phone,users.email,users.address FROM users WHERE users.user_id = '".$user_id."'";
 
         $query = $this->db->query($s);
@@ -30,6 +39,9 @@ class Usermodel extends CI_Model{
         return $ret;
     }
 
+   
+
+   
     function get_user_password($user_id){
         $s ="SELECT  users.password FROM users WHERE users.user_id ='".$user_id."'";
 

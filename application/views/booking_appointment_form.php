@@ -8,11 +8,20 @@
 <body id="page-top">
     <?php $this->load->view("includes/navbar") ?>
 
+    <?php
+            $username = '';
+
+    foreach ($profiledata_booking as $row) {
+        $name = $row->user_name;
+        $phone = $row->phone;
+        $email = $row->email;
+    }
+    ?>
     <!-- services Grid-->
     <section class="page-section bg-light" id="servicesform">
         <div class="container-fluid align-items-center justify-content-center">
 
-
+      
 
             <!-- Page Heading -->
             <center>
@@ -27,17 +36,18 @@
 
                             <div class="form-group ">
                                 <label>Customer Name</label>
-                                <input type="text" class="form-control form-control-services" id="name" placeholder="Please Enter Your Name" required>
+                                <input type="text" class="form-control form-control-services" id="name" placeholder="Please Enter Your Name" value="<?= $name; ?>" disabled>
                             </div>
 
                             <div class="form-group ">
                                 <label>Customer Email</label>
-                                <input type="email" class="form-control form-control-services" id="email" placeholder="Please Enter Your Email" required>
+                                
+                                <input type="email" class="form-control form-control-services" id="email" placeholder="Please Enter Your Email" value="<?= $email; ?>" disabled>
                             </div>
 
                             <div class="form-group ">
                                 <label>Customer Phone Number</label>
-                                <input type="tel" class="form-control form-control-services" id="phone" placeholder="Please Enter Your Phone Number" required>
+                                <input type="tel" class="form-control form-control-services" id="phone" placeholder="Please Enter Your Phone Number"  value="<?= $phone; ?>" disabled>
                             </div>
 
                             <div class="form-group ">
@@ -116,6 +126,8 @@
         $('#formaddappointment').on('submit', function(e) {
             e.preventDefault();
 
+            
+
             var name = $('#name').val();
             var phone = $('#phone').val();
             var email = $('#email').val();
@@ -127,6 +139,7 @@
             var year = $('#year').val();
             var license_plate = $('#license_plate').val();
             var comments = $('#comments').val();
+            // var comments = $('#comments').val();
 
             $.ajax({
 
@@ -164,12 +177,17 @@
                     alert("error");
 
                 }
+                
             })
 
 
-
-        })
+            read_email_address();
+        }
+    )
+        
     </script>
+
+    
 </body>
 
 

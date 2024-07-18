@@ -43,7 +43,7 @@ class Login extends CI_Controller {
 
 			$this->session->set_userdata('loged_user', $login_data);
 
-			$message = array("status"=>"success", "message"=>"http://localhost/myservice/services");
+			$message = array("status"=>"success", "message"=> base_url() ."services");
 
 		} else {
 			$message = array("status"=>"error", "message"=>"User Name or Password is Invalid ");

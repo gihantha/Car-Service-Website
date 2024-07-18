@@ -21,12 +21,23 @@ class Booking extends CI_Controller
 
 	public function index()
 	{
+		
+
 		$this->load->view('booking');
 	}
 
 	function booking_appointment_form()
 	{
-		$this->load->view('booking_appointment_form');
+		$user_id  = $this->session->userdata['loged_user']['user_id'];
+		//When we need to pass the data to the model 
+		//retrieves user data from the database
+		$result= $this->Usermodel->get_user_profile_for_booking($user_id);
+
+		//When we need to pass the data to the view
+		// Prepare data to be passed to the view
+		$data['profiledata_booking'] = $result;
+
+		$this->load->view('booking_appointment_form',$data);
 	}
 
 	function dashboard_booking_appointments()
@@ -80,4 +91,7 @@ class Booking extends CI_Controller
 
 		echo json_encode($message);
 	}
+
+	
+
 }

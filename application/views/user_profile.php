@@ -181,13 +181,13 @@
 
                 success: function(result) {
 
-                    var resdata = $.parseJSON(result);
+                    // var resdata = $.parseJSON(result);
 
-                    var phone = resdata.profile[0]['phone'];
-                    var address = resdata.profile[0]['address'];
+                    // var phone = resdata.profile[0]['phone'];
+                    // var address = resdata.profile[0]['address'];
 
-                    $('#phone').val();
-                    $('#address').val();
+                    // $('#phone').val();
+                    // $('#address').val();
 
                 },
                 error: function(result) {

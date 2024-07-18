@@ -79,6 +79,10 @@ class Settings extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	
+
+
+
 	function change_password(){
 
 		$oldpass = $this->input->post('oldpass');
